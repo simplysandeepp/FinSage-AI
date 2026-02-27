@@ -1,294 +1,428 @@
-# 🦅 FinSage AI — **Multi-Agent Quantitative & Sentiment Financial Intelligence**
+# 🦅 FinSage AI — **The Professional Multi-Agent Financial Intelligence Platform**
 
-> A professional-grade, full-stack AI system that synthesizes parallel agent intelligence into actionable financial signals.
+[![Tech Stack](https://img.shields.io/badge/Stack-FastAPI%20%7C%20React%20%7C%20XGBoost-blue)](#-tech-stack-summary)
+[![LLM Powers](https://img.shields.io/badge/LLM-Groq%20%7C%20Gemini%20%7C%20Llama3-orange)](#-llm-client-rotation)
+[![Architecture](https://img.shields.io/badge/Architecture-Multi--Agent%20Committee-green)](#-full-system-architecture)
+
+> **FinSage AI** is a state-of-the-art financial synthesis engine. It bridges the gap between raw quantitative market data and qualitative narrative sentiment by orchestrating a **Committee of Specialized AI Agents**. Every signal is ensembled by a "CIO Agent" and backed by a transparent, immutable audit trail.
 
 ---
 
 ## 📋 Table of Contents
-1. [What Is This Project?](#3-what-is-this-project)
-2. [Who Is This For?](#4-who-is-this-for)
-3. [Live Demo](#5-live-demo)
-4. [Full System Architecture](#6-full-system-architecture)
-5. [Phase 0: Offline Data & Training Pipeline](#7-phase-0-offline-data--training-pipeline)
-6. [Phase 1: User Request Entry](#8-phase-1-user-request-entry)
-7. [Phase 2: Orchestrator & Data Routing](#9-phase-2-orchestrator--data-routing)
-8. [Phase 3: The 4 Parallel AI Agents](#10-phase-3-the-4-parallel-ai-agents)
-9. [Phase 4: Ensembler (CIO Agent)](#11-phase-4-ensembler-cio-agent)
-10. [Phase 5: Response Assembly & Audit](#12-phase-5-response-assembly--audit)
-11. [Frontend Pages](#13-frontend-pages)
-12. [LLM Client](#14-llm-client)
-13. [Data Sources Explained](#15-data-sources-explained)
-14. [Project File Structure](#16-project-file-structure)
-15. [Environment Variables & Configuration](#17-environment-variables--configuration)
-16. [How to Run Locally](#18-how-to-run-locally)
-17. [API Reference](#19-api-reference)
-18. [Database Schema](#20-database-schema)
-19. [Tech Stack Summary](#21-tech-stack-summary)
-20. [Known Limitations & Future Work](#22-known-limitations--future-work)
-21. [Quick Reference Card](#23-quick-reference-card)
+1.  [🚀 What Is FinSage AI?](#-what-is-finsage-ai)
+2.  [🧑‍💻 Who Is This For?](#-who-is-this-for)
+3.  [🖼️ Live Demo Interface](#️-live-demo-interface)
+4.  [🏗️ Full System Architecture](#️-full-system-architecture)
+5.  [🧪 Phase 0: Offline Training & Training Pipeline](#-phase-0-offline-training--training-pipeline)
+6.  [📥 Phase 1: User Request Entry](#-phase-1-user-request-entry)
+7.  [🛣️ Phase 2: Orchestrator & Data Routing](#️-phase-2-orchestrator--data-routing)
+8.  [🧠 Phase 3: The 4 Parallel AI Agents](#-phase-3-the-4-parallel-ai-agents)
+    *   [📊 Financial Agent](#-financial-agent)
+    *   [🎭 Sentiment Agent](#-sentiment-agent)
+    *   [🌎 Macro Agent](#-macro-agent)
+    *   [🏁 Peer Agent](#-peer-agent)
+9.  [🗳️ Phase 4: Ensembler (Chief Investment Officer)](#️-phase-4-ensembler-chief-investment-officer)
+10. [📂 Phase 5: Response Assembly & Audit Trail](#-phase-5-response-assembly--audit-trail)
+11. [📁 Project File Structure (Exhaustive)](#-project-file-structure-exhaustive)
+12. [💻 Frontend Walkthrough](#-frontend-walkthrough)
+13. [🔌 LLM Client Rotation & Fallback Logic](#-llm-client-rotation--fallback-logic)
+14. [📉 Data Sources Explained](#-data-sources-explained)
+15. [🔑 Environment Variables & Configuration](#-environment-variables--configuration)
+16. [🛠️ How to Run Locally (Step-by-Step)](#️-how-to-run-locally-step-by-step)
+17. [📡 API Reference](#-api-reference)
+18. [🗄️ Database Schema](#️-database-schema)
+19. [🛠️ Tech Stack Summary](#️-tech-stack-summary)
+20. [⚠️ Known Limitations & Future Roadmap](#️-known-limitations--future-roadmap)
+21. [⚡ Quick Reference Card (Dev Cheatsheet)](#-quick-reference-card-dev-cheatsheet)
 
 ---
 
-## 🔷 3. What Is This Project?
-FinSage AI is a multi-modal financial analysis engine designed to bridge the gap between quantitative technical data and qualitative market sentiment. Unlike traditional trading bots that rely solely on price action, FinSage AI employs a **Committee of Agents** architecture to simulate a professional investment committee.
+## 🚀 1. What Is FinSage AI?
 
-**Core Problems Solved:**
-- **Information Overload:** Automatically synthesizes news, macro trends, and financial statements into a single report.
-- **Siloed Analysis:** Breaks the barrier between "Numbers" (Quant) and "Narrative" (Sentiment).
-- **Transparency:** Every decision is backed by an audit trail of agent reasoning, preventing "black box" AI behavior.
-- **Model Drift:** Uses a specialized training pipeline with synthetic financial data to ensure robustness in volatile markets.
+FinSage AI solves the **"Analysis Fragmentation"** crisis in modern finance. While traders are traditionally divided into "Quants" (numbers) and "Technical/Sentiment" (narrative) schools, FinSage AI synthesizes both using a **Multi-Agent Committee (MAC)** architecture.
 
----
+### **The Core Problem**
+In current markets, raw data is abundant but **high-signal insight** is scarce. 
+*   **Information Overload:** A single ticker generates thousands of news items, social posts, and SEC filings daily.
+*   **Siloed Intelligence:** Quantitative models ignore human narrative; LLMs ignore strict solvency ratios.
+*   **Black-Box Decisions:** Most AI trading signals lack "Explainability"—you don't know *why* it says 'Buy'.
 
-## 🧑‍💻 4. Who Is This For?
-- **Quantitative Analysts:** Looking for a framework to orchestrate ML models with LLM reasoning.
-- **Portfolio Managers:** Needing a high-level "second opinion" on tickers with summarized peer-benchmarking.
-- **FinTech Developers:** Seeking a reference architecture for building production-grade multi-agent systems.
+### **How We Solve It**
+FinSage AI runs four specialized agents in parallel. Each agent is "blind" to the others until the final **Ensembling Phase**, preventing bias and ensuring a diverse range of perspectives—identical to an institutional investment committee.
 
 ---
 
-## 🖥️ 5. Live Demo
+## 🧑‍💻 2. Who Is This For?
+*   **Professional Quantitative Analysts:** A framework to integrate LLM logic with XGBoost forecasting.
+*   **Portfolio Managers:** A second-opinion tool that summarizes news into sentiment polarity.
+*   **FinTech Developers:** A production-ready blueprint for multi-agent LLM orchestration.
+*   **Retail Investors:** Access to high-level institutional-grade committee analysis.
+
+---
+
+## 🖼️ 3. Live Demo Interface
 ```ascii
 +-----------------------------------------------------------+
-| [Search: NVDA      ] [ Analyze ]                          |
+| 🦅 FINSAGE AI | DASHBOARD | Ticker: NVDA | Signal: BUY    |
 +-----------------------------------------------------------+
-|  QUICK SIGNAL: [ BUY ]  CONFIDENCE: 89%                   |
+| [ REVENUE FORECAST (XGBOOST) ]                            |
+|  $30B |                                                   |
+|       |             ○ <- [Predicted Range: $28B-$31B]     |
+|  $20B |       ●-----'                                     |
+|       | ○-----'                                           |
+|       +--------------------------------------------> Time |
+|         Q1    Q2    Q3    Q4 (Forecast)                   |
 +-----------------------------------------------------------+
-| AGENT INSIGHTS                                            |
-| > Financial: "Strong FCF, Debt/Equity < 0.5"      [OK]    |
-| > Sentiment: "Heavy bullish options flow detected" [HIGH]  |
-| > Macro: "Semiconductor cyclical peak approaching" [WARN]  |
-| > Peer: "Outperforming AMD/INTC in gross margins"  [OK]    |
+| [ COMMITTEE INSIGHTS ]                                    |
+| 📊 FINANCIAL: "ROE increased by 12%; Debt Coverage 4x"    |
+| 🎭 SENTIMENT: "Social buzz 8.2/10; News cycle Bullish"    |
+| 🌎 MACRO:     "Rate cuts expected; Tech sector tailwind"  |
+| 🏁 PEER:      "Gaining 4% market share from Intel/AMD"    |
 +-----------------------------------------------------------+
-| REVENUE FORECAST (XGBOOST)                                |
-|  $ |          /--[Forecast Range]                         |
-|    |     *---/                                            |
-|    | *--/                                                 |
-| ---+-----------------------------------> Time            |
+| [ CIO REASONING ]                                         |
+| "Consensus reached on growth persistence vs macro risk."  |
+| CONFIDENCE: 89.2% | AUDIT ID: #AX-9012                    |
 +-----------------------------------------------------------+
 ```
 
 ---
 
-## ⚙️ 6. Full System Architecture
-```ascii
-[ USER ] 
-   │
-   ▼
-[ FRONTEND (Vite/React) ] ───▶ [ FASTAPI GATEWAY ]
-                                     │
-                                     ▼
-                      [ ORCHESTRATOR (Parallel Exec) ]
-                      ╱        │           │        ╲
-          [ FIN AGENT ]  [ SENTI AGENT ] [ MACRO ] [ PEER ]
-               │               │           │         │
-               └───────────────┼───────────┼─────────┘
-                               ▼
-                        [ ENSEMBLER (CIO) ]
-                               │
-                               ▼
-                    [ RESPONSE + AUDIT LOG ] ──▶ [ SQLITE ]
+## 🏗️ 4. Full System Architecture
+
+### **Modular Data Flow**
+```mermaid
+graph TD
+    User((User)) -->|Search Ticker| FE[React Frontend]
+    FE -->|POST /forecast| API[FastAPI Gateway]
+    
+    subgraph "Backend Core"
+        API --> ORC[Orchestrator]
+        ORC -->|Historical Data| YF[yFinance Fetcher]
+        
+        subgraph "Committee of Specialized Agents"
+            ORC -->|JSON| AF[Financial Agent]
+            ORC -->|Text| AS[Sentiment Agent]
+            ORC -->|Metrics| AM[Macro Agent]
+            ORC -->|Benchmarking| AP[Peer Agent]
+        end
+        
+        subgraph "Machine Learning Forecasting"
+            ORC --> XGB[XGBoost Quantile Model]
+        end
+        
+        AF & AS & AM & AP & XGB -->|Results| ENS[CIO Ensembler]
+        ENS -->|Final Signal| AUD[Audit Manager]
+        AUD -->|Persist| DB[(SQLite)]
+    end
+    
+    ENS -->|Payload| API
+    API -->|Consolidated State| FE
 ```
 
 ---
 
-## 🧪 7. Phase 0: Offline Data & Training Pipeline
-Before the first request, the system runs a training pipeline to calibrate the **XGBoost Quantile Regressor**.
-1. **Synthetic Generation:** `generator.py` uses Geometric Brownian Motion (GBM) and AR(1) models to create 10,000+ financial scenarios.
-2. **Feature Engineering:** `feature_store.py` calculates rolling volatility, RSI, and fundamental ratios.
-3. **Model Training:** `xgboost_model.py` trains on synthetic + historical `yfinance` data to predict the next quarter's revenue and risk variance.
+## 🧪 5. Phase 0: Offline Training & Training Pipeline
+Before the first user request, the system must calibrate its statistical "brain".
+1.  **Synthetic Financial Generation (`generator.py`):** Uses **Geometric Brownian Motion (GBM)** to simulate price paths and **Auto-Regressive (AR1)** models to generate synthetic fundamental ratios. This allows the model to learn from "Market Crash" scenarios that haven't happened yet.
+2.  **Feature Store (`feature_store.py`):** Transforms raw OHLCV and fundamental data into **Alpha Features** (Rolling Volatility, RSI, Debt-to-Equity lags).
+3.  **XGBoost Training (`xgboost_model.py`):** Trains a **Quantile Regressor**. Unlike standard regression which gives one number, quantile regression provides the **lower bound (P10)** and **upper bound (P90)** of potential revenue, allowing for risk-aware forecasting.
 
 ---
 
-## 📥 8. Phase 1: User Request Entry
-The user provides a ticker (e.g., `AAPL`) and a timeframe.
-- **Validation:** Frontend hooks validate ticker existence via `yfinance`.
-- **Packet Construction:** A request payload containing the ticker, scope, and optional flags is sent to `/forecast`.
+## 📥 6. Phase 1: User Request Entry
+1.  User enters a ticker (e.g., `NVDA`) on the Home Page.
+2.  The `useForecast` React hook validates the ticker string.
+3.  An asynchronous POST request is dispatched to the backend.
+4.  A **Loading Spinner** is rendered, displaying status messages such as "Syncing with Committee..." to maintain user engagement.
 
 ---
 
-## 🛣️ 9. Phase 2: Orchestrator & Data Routing
-The `orchestrator.py` module receives the request and:
-1. Fetches "Ground Truth" data via `yfinance_fetcher.py`.
-2. Spins up 4 parallel threads/tasks, each hosting one specialized AI Agent.
-3. Injects relevant data slices into each agent's context.
+## 🛣️ 7. Phase 2: Orchestrator & Data Routing
+The `orchestrator.py` is the conductor of the system.
+*   **Asynchronous Parallelism:** It utilizes `asyncio.gather()` to trigger all 4 agents and the ML model simultaneously.
+*   **Data Slicing:** Instead of sending the entire 10-year history to every agent, it slices data according to need:
+    *   **Financial Agent:** Gets 4 years of Balance Sheets/Income Statements.
+    *   **Sentiment Agent:** Gets the last 30 days of news headlines.
+    *   **Macro Agent:** Gets sector-wide CPI and interest rate trends.
+    *   **Peer Agent:** Gets a list of top-5 competitors and their market share.
 
 ---
 
-## 🧠 10. Phase 3: The 4 Parallel AI Agents
+## 🧠 8. Phase 3: The 4 Parallel AI Agents
 
-### 📊 Financial Agent
-- **Input:** Balance Sheet, Income Statement, Cash Flow (3 years).
-- **Output:** Financial health score (0-100) + textual summary of solvency.
-- **LLM:** Groq Llama-3-70b (Primary).
-- **Fallback:** Rule-based ratio check if LLM times out.
+### **📊 Financial Agent**
+*   **Core Task:** Evaluate the "Intrinsic Strength" of the company.
+*   **Logic:** Calculates Altmans-Z Score, ROE, Current Ratio, and Debt-to-Equity.
+*   **LLM Prompting:** Structured to think as a CPA/CFA.
+*   **Degraded Mode:** If LLM fails, it falls back to a hard-coded Python rule-engine (Ratios > Threshold = "HEALTHY").
 
-### 🎭 Sentiment Agent
-- **Input:** Recent news headlines + social media snippets.
-- **Output:** Sentiment polarity (-1 to 1) + key narrative drivers.
-- **LLM:** Gemini 1.5 Flash.
-- **Fallback:** NLTK/VADER local sentiment analysis.
+### **🎭 Sentiment Agent**
+*   **Core Task:** Gauge "Market Mood".
+*   **Input:** Multi-provider news scrapers.
+*   **Logic:** Summarizes qualitative news into a polarity score (-1.0 to 1.0).
+*   **Timeout Handling:** Uses Gemini 1.5 Flash for high context windows if news volume is high.
 
-### 🌎 Macro Agent
-- **Input:** Sector-specific macro indicators (CPI, Rates).
-- **Output:** Sector tailwind/headwind assessment.
-- **LLM:** Groq Llama-3-8b.
-- **Fallback:** Static sector-lookup table.
+### **🌎 Macro Agent**
+*   **Core Task:** Contextualize the ticker in the "Big Picture".
+*   **Logic:** Analyzes if current Federal Reserve policy acts as a "tail-wind" or "head-wind" for the ticker's specific sector.
+*   **Fallback:** Uses a static sector-mapping table.
 
-### 🏁 Peer Agent
-- **Input:** Ticker + list of competitors.
-- **Output:** Comparative ranking on P/E, PEG, and Growth.
-- **LLM:** Gemini 1.5 Flash.
-- **Fallback:** Top-3 peer average comparison.
+### **🏁 Peer Agent**
+*   **Core Task:** Benchmarking.
+*   **Logic:** Compares the ticker's PEG ratio and revenue growth against its 3 closest rivals.
+*   **Output:** A "Winner/Laggard" assessment.
 
 ---
 
-## 🗳️ 11. Phase 4: Ensembler (CIO Agent)
-The **Chief Investment Officer (CIO) Agent** acts as the final judge.
-- **Logic:** It receives the 4 JSON objects from the agents.
-- **Synthesis:** It weights the insights based on historical accuracy of each agent type for that specific sector.
-- **Signal:** Generates the final `{signal: 'BUY', confidence: 0.85, reasoning: '...'}`.
+## 🗳️ 9. Phase 4: Ensembler (Chief Investment Officer)
+The **CIO Agent** acts as the "Adult in the Room".
+*   **Input:** Receives 4 JSON objects from the agents + 1 Forecast from XGBoost.
+*   **Consensus Logic:** It checks for "Consensus vs Divergence". 
+    *   *Example:* If Financials are great but Sentiment is terrible, the CIO notes the "Value Trap" risk and downgrades the signal to **HOLD**.
+*   **Final Output:** A single `{ "signal": "BUY", "confidence": 0.85, "reasoning": "..." }` packet.
 
 ---
 
-## 📂 12. Phase 5: Response Assembly & Audit
-1. **JSON Assembly:** All agent outputs are merged into a comprehensive state object.
-2. **Persistence:** The `audit/db.py` saves the prompt/response/signal into `audit_trail.sqlite` for later review.
-3. **Response:** The frontend receives the full payload to render the dashboard.
+## 📂 10. Phase 5: Response Assembly & Audit Trail
+1.  **Persistence (`audit/db.py`):** The final ensemble, agent logs, and timestamps are saved to `audit_trail.sqlite`. This ensures that in 6 months, you can check *exactly* why the AI recommended a trade.
+2.  **Assembly:** All agent data is packed into a nested JSON structure.
+3.  **Delivery:** The frontend receives the payload and re-renders the **Results Page**.
 
 ---
 
-## 🖼️ 13. Frontend Pages
-- **🏠 Home:** Clean search interface with "Market Pulse" ticker.
-- **📈 Results:** Interactive Recharts dashboard showing history + predicted forecast.
-- **⚖️ Audit:** Table view of previous analyses with "View Reasoning" modals.
-- **👥 Peers:** Side-by-side comparison cards for the current ticker vs its industry.
+## 📁 11. Project File Structure (Exhaustive)
 
----
-
-## 🔌 14. LLM Client
-The system uses a **Rotation & Fallback** strategy:
-- **Groq (Llama 3)** is preferred for speed and quantitative reasoning.
-- **Gemini 1.5** is used for large context window news analysis.
-- If an API key hits a rate limit, the system transparently switches to the other provider or a local `tiny-llama` instance (optional).
-
----
-
-## 📉 15. Data Sources Explained
-- **yfinance:** Primary source for technical and fundamental data. (Latency: ~1s).
-- **Alpha Vantage:** Fallback for macro data/FX rates.
-- **Synthetic Generator:** Used for testing "Edge Case" market crashes that haven't happened yet.
-
----
-
-## 📁 16. Project File Structure
 ```ascii
 finsage-ai/
-├── backend/
-│   ├── agents/               # 🧠 Individual AI specialized logic
-│   ├── orchestrator/         # 🚦 Parallel execution & Signal Ensembling
-│   ├── models/               # 📉 XGBoost forecasting logic
-│   ├── data/                 # 📡 Live API fetchers
-│   ├── llm/                  # 🔌 Multi-provider client (Groq/Gemini)
-│   ├── audit/                # ⚖️ SQLite logging for accountability
-│   └── out/                  # 🧊 ML Artifacts (pkl/json)
-├── frontend/
-│   ├── src/
-│   │   ├── components/       # 🧩 Reusable UI units (Cards, Charts)
-│   │   ├── pages/            # 📄 Main route views
-│   │   └── hooks/            # 🎣 API & State management
-└── .env                      # 🔑 API Keys (Not committed)
+│
+├── README.md                          # 📖 Detailed documentation (this file)
+├── .gitignore                         # 🙈 Git ignore rules for node, venv, .env
+│
+├── backend/                           # ⚙️ Python Multi-Agent Backend
+│   ├── .env                           # 🔑 API Keys (Groq, Gemini)
+│   ├── requirements.txt               # 📦 Core Python dependencies
+│   ├── config.yaml                    # ⚙️ Global thresholds & LLM timeouts
+│   ├── train_pipeline.py              # 🚀 Entry: Pipeline orchestrator
+│   │
+│   ├── out/                           # 🧊 ML Binary Artifacts (Git Ignored)
+│   │   ├── financial_model.pkl        #   - Trained XGBoost model
+│   │   └── features.json              #   - Feature metadata
+│   │
+│   ├── agents/                        # 🧠 The Committe of AI Agents
+│   │   ├── base.py                    #   - Abstract Base Agent class
+│   │   ├── financial_agent.py         #   - Quant Financial Analysis
+│   │   ├── sentiment_agent.py         #   - News/NLP Analysis
+│   │   ├── macro_agent.py             #   - Macroeconomic context
+│   │   └── peer_agent.py              #   - Competitor benchmarking
+│   │
+│   ├── orchestrator/                  # 🚦 Workflow & Communication
+│   │   ├── api.py                     #   - FastAPI Routes & App entry
+│   │   ├── orchestrator.py            #   - Parallel execution manager
+│   │   └── ensembler.py               #   - CIO Agent (Signal merging)
+│   │
+│   ├── models/                        # 📉 Predictive Statistical Models
+│   │   └── xgboost_model.py           #   - XGBoost Train/Predict logic
+│   │
+│   ├── data/                          # 📡 Data Acquisition
+│   │   └── yfinance_fetcher.py        #   - Live Yahoo Finance adapter
+│   │
+│   ├── llm/                           # 🔌 LLM Connectivity
+│   │   └── client.py                  #   - Groq/Gemini rotation logic
+│   │
+│   └── audit/                         # ⚖️ Governance & Accountability
+│       ├── db.py                      #   - SQLAlchemy Trace Schema
+│       └── audit_trail.sqlite         #   - Local Audit DB (Auto-created)
+│
+└── frontend/                          # 🎨 Modern React Dashboard
+    ├── package.json                   # 📦 React + Vite dependencies
+    ├── vite.config.js                 # ⚡ Build configuration
+    ├── index.html                     # 📄 Main entry point (HTML5)
+    │
+    └── src/                           # ⚛️ Source Code
+        ├── main.jsx                   #   - React Bootstrap
+        ├── App.jsx                    #   - Main Routing & Navigation
+        ├── index.css                  #   - Styling & Design Tokens
+        │
+        ├── pages/                     # 📄 View Components
+        │   ├── Home.jsx               #   - Search & Market Pulse
+        │   ├── Results.jsx            #   - Analysis Visualization
+        │   └── Audit.jsx              #   - Historical Log Viewer
+        │
+        ├── components/                # 🧩 Reusable Atomic UI
+        │   ├── AgentCard.jsx          #   - Individual Agent Insight UI
+        │   ├── ForecastChart.jsx      #   - Recharts Real-time graph
+        │   ├── SignalBadge.jsx        #   - Score & Confidence badge
+        │   └── LoadingSpinner.jsx     #   - Engagement component
+        │
+        ├── hooks/                     # 🎣 React Logic
+        │   └── useForecast.js         #   - API Fetching & State
+        │
+        └── utils/                     # 🛠️ Helper Functions
+            └── formatters.js          #   - Currency & Percent logic
 ```
 
 ---
 
-## 🔑 17. Environment Variables & Configuration
-| Key | Required | Purpose |
-| :--- | :--- | :--- |
-| `GROQ_API_KEY` | Yes | High-speed LLM inference |
-| `GEMINI_API_KEY` | Yes | News/Text analysis |
-| `DATABASE_URL` | No | SQLite path (defaults to local) |
-| `ML_THRESHOLD` | No | Confidence cutoff for signals |
+## 💻 12. Frontend Walkthrough
+
+### **🚀 The Search (Home.jsx)**
+*   Large, centered input with focus-glow effects.
+*   One-click "Quick Select" for major tickers (NVDA, BTC, AAPL).
+*   **Design:** Deep slate background with vibrant blue primary accents.
+
+### **📊 The Dashboard (Results.jsx)**
+*   **Header Section:** Ticker badge + Final Signal + Confidence progress bar.
+*   **Forecast Section:** Interactive line chart mapping historical revenue against the AI-predicted range.
+*   **Reasoning Section:** A combined summary from the CIO Agent explaining the consensus.
+*   **Agent Grid:** 4 cards showing individual agent findings and raw data flags.
 
 ---
 
-## 🚀 18. How to Run Locally
-1. **Clone the Repo:** `git clone https://github.com/your-repo/finsage-ai.git`
-2. **Backend Setup:**
-   ```bash
-   cd backend
-   python -m venv venv
-   source venv/bin/activate  # venv\Scripts\activate on Windows
-   pip install -r requirements.txt
-   ```
-3. **Frontend Setup:**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
-4. **Environment:** Copy `.env.example` to `.env` and add your keys.
-5. **Start:** Run `python train_pipeline.py` then `npm run dev`.
+## 🔌 13. LLM Client Rotation & Fallback Logic
+We minimize API downtime using a **Tiered Logic Client**:
+1.  **Tier 1: Groq (Llama 3 70b):** Used for intensive reasoning where speed is paramount.
+2.  **Tier 2: Gemini 1.5 Pro:** Used for massive text payloads (e.g., thousands of news headlines).
+3.  **Circuit Breaker:** If both APIs fail or hit rate limits, the system switches to **TinyLlama** (local) or **Rule-Based Extraction**.
 
 ---
 
-## 📡 19. API Reference
-| Method | Path | Description | Response |
+## 📉 14. Data Sources Explained
+*   **yfinance (Primary):** Provides real-time and historical pricing, splits, and fundamentals.
+*   **Alpha Vantage (Secondary):** Used for macro-indicators like Interest Rates and Unemployment.
+*   **Glassnode (Optional):** Integration point for crypto-asset specific metrics.
+
+---
+
+## 🔑 15. Environment Variables & Configuration
+| Variable Name | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
-| POST | `/forecast` | Run multi-agent analysis | `JSON (Signal + Agent Data)` |
-| GET | `/audit` | Get historical reports | `Array[AuditRecord]` |
-| GET | `/health` | Server status check | `{status: 'ok'}` |
+| `GROQ_API_KEY` | **Yes** | - | Obtain from [Groq Cloud](https://console.groq.com) |
+| `GEMINI_API_KEY` | **Yes** | - | Obtain from [Google AI Studio](https://aistudio.google.com) |
+| `DATABASE_URL` | No | `sqlite:///./audit.sqlite` | SQLAlchemy connection string |
+| `LOG_LEVEL` | No | `INFO` | DEBUG, INFO, WARNING |
 
 ---
 
-## 🗄️ 20. Database Schema (Audit Trail)
-| Column | Type | Description |
-| :--- | :--- | :--- |
-| `id` | INTEGER | Primary Key |
-| `ticker` | TEXT | Stock ticker |
-| `signal` | TEXT | BUY/HOLD/SELL |
-| `agent_logs` | JSON | Full trace of agent responses |
-| `timestamp` | DATETIME | Time of generation |
+## 🛠️ 16. How to Run Locally (Step-by-Step)
 
----
-
-## 🛠️ 21. Tech Stack Summary
-**Backend**
-| Tool | Purpose | Version |
-| :--- | :--- | :--- |
-| FastAPI | Web Framework | 0.95+ |
-| XGBoost | Forecasting | 1.7+ |
-| SQLAlchemy | ORM / Audit | 2.0+ |
-
-**Frontend**
-| Tool | Purpose | Version |
-| :--- | :--- | :--- |
-| React | UI Library | 18.2 |
-| Tailwind | Styling | 3.3 |
-| Recharts | Visualization | 2.5 |
-
----
-
-## ⚠️ 22. Known Limitations & Future Work
-**Limitations**
-- `yfinance` can sometimes be throttled by Yahoo Finance servers.
-- Sentiment analysis is limited by the quality of free news scrapers.
-
-**Future Roadmap**
-- [ ] Integration with real-time WebSocket price feeds.
-- [ ] Discord/Slack bot for signal alerts.
-- [ ] Portfolio optimization (Mean-Variance) agent.
-
----
-
-## ⚡ 23. Quick Reference Card
-```ascii
-+-----------------------------------------------------------+
-| FIN-SAGE AI DEVELOPER CHEATSHEET                         |
-+-----------------------------------------------------------+
-| INSTALL: npm install && pip install -r requirements.txt   |
-| TRAIN:   python backend/train_pipeline.py                 |
-| SERVE:   uvicorn backend.orchestrator.api:app --reload    |
-| FRONT:   npm run dev                                      |
-| TEST:    pytest backend/tests                             |
-+-----------------------------------------------------------+
+### **1. Clone & Prepare**
+```bash
+git clone https://github.com/your-username/finsage-ai.git
+cd finsage-ai
 ```
+
+### **2. Backend Setup**
+```bash
+cd backend
+python -m venv venv
+# Windows: venv\Scripts\activate | Unix: source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env # Add your keys here
+```
+
+### **3. Training theStatistical Engine**
+```bash
+# This generates synthetic data and trains the XGBoost Forecaster
+python train_pipeline.py
+```
+
+### **4. Frontend Setup**
+```bash
+cd ../frontend
+npm install
+```
+
+### **5. Launch**
+*   **Terminal A (Backend):** `uvicorn orchestrator.api:app --host 0.0.0.0 --port 8000 --reload`
+*   **Terminal B (Frontend):** `npm run dev`
+
+---
+
+## 📡 17. API Reference
+
+### **`POST /forecast`**
+Main engine entry point.
+*   **Request Body:** `{ "ticker": "TSLA" }`
+*   **Response (JSON):** 
+```json
+{
+  "ticker": "TSLA",
+  "final_signal": { "signal": "BUY", "confidence": 0.82 },
+  "agents": [ { "agent": "Financial", "insight": "...", "data": {} }, ... ],
+  "forecast": [ { "time": "Q1", "value": 24.1 }, ... ]
+}
+```
+
+### **`GET /audit`**
+Retrieve historical analyses.
+*   **Response:** Array of previous trace records.
+
+---
+
+## 🗄️ 18. Database Schema
+
+### **Table: `audit_trail`**
+| Column | Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | INTEGER | Primary Key | Auto-inc |
+| `ticker` | STRING(10) | Not Null | Stock symbol |
+| `signal` | STRING(10) | Not Null | BUY, HOLD, SELL |
+| `confidence` | FLOAT | - | 0.0 to 1.0 |
+| `agent_logs` | JSON | - | Full agent trace |
+| `created_at` | DATETIME | - | Timestamp |
+
+---
+
+## 🛠️ 19. Tech Stack Summary
+
+**Backend Layer**
+| Component | Technology | Version |
+| :--- | :--- | :--- |
+| Gateway | FastAPI | 0.95+ |
+| ML Engine | XGBoost | 1.7.0+ |
+| Database | SQLAlchemy | 2.0+ |
+| Serialization | Pydantic v2 | 2.x |
+
+**Frontend Layer**
+| Component | Technology | Version |
+| :--- | :--- | :--- |
+| UI Framework | React | 18.2 |
+| Build Tool | Vite | 5.2 |
+| Styling | Tailwind CSS | 3.3 |
+| Charts | Recharts | 2.5 |
+
+---
+
+## ⚠️ 20. Known Limitations & Future Roadmap
+
+### **Limitations**
+*   **yfinance Reliability:** Can occasionally experience latency spikes during market open.
+*   **News Coverage:** Dependent on free news RSS feeds which may miss niche sector news.
+
+### **Roadmap 2024/2025**
+*   [ ] **RAG Integration:** Connect to local PDF research reports for context injection.
+*   [ ] **Discord Bot:** Real-time signal broadcast to specialized trading channels.
+*   [ ] **Portfolio Optimizer:** An agent that suggests "Rebalancing" across multiple tickers.
+*   [ ] **WebSocket Streaming:** "Think-along" UI showing agents typing in real-time.
+
+---
+
+## ⚡ 21. Quick Reference Card (Dev Cheatsheet)
+```ascii
++-------------------------------------------------------------+
+| FINSAGE AI QUICK REFERENCE                                  |
++-------------------------------------------------------------+
+| INSTALL: pip install -r backend/requirements.txt            |
+| INSTALL: cd frontend && npm install                         |
+|                                                             |
+| TRAIN:   python backend/train_pipeline.py                   |
+| START:   uvicorn backend.orchestrator.api:app --reload      |
+| DEV:     cd frontend && npm run dev                         |
+|                                                             |
+| TEST:    pytest backend/tests/                              |
+| LINT:    flake8 backend/ --max-line-length=120              |
++-------------------------------------------------------------+
+```
+
+---
+*Created with ❤️ by the FinSage AI Team. For professional support, visit [finsage.ai](https://finsage.ai).*
